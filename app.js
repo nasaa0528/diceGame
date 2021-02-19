@@ -18,8 +18,8 @@ let diceDom = document.querySelector(".dice");
 
 function resetGame() {
   if (activePlayer){
-    document.querySelector(".player-1-panel").classList.remove("active");
-    document.querySelector(".player-0-panel").classList.add("active");
+    document.querySelector(".player-1-panel").classList.toggle("active");
+    document.querySelector(".player-0-panel").classList.toggle("active");
   }
   activePlayer = 0;
   scores = [0, 0];
@@ -32,9 +32,11 @@ function resetGame() {
 }
 
 function changeTurn() {
-  document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+  document.querySelector(".player-1-panel").classList.toggle("active");
+  document.querySelector(".player-0-panel").classList.toggle("active");
+  //document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
   activePlayer = (activePlayer) ? 0 : 1;
-  document.querySelector(".player-" + activePlayer + "-panel").classList.add("active");
+  //document.querySelector(".player-" + activePlayer + "-panel").classList.add("active");
   diceDom.style.display = "none";
 }
 
